@@ -9,7 +9,7 @@ const Header = () => {
       </li>
 
       <li className="mx-2">
-        <Link to="/">Add Product</Link>
+        <Link to="/addproduct">Add Product</Link>
       </li>
     </>
   );
@@ -38,8 +38,11 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
-          Product Management
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-2xl font-extrabold"
+        >
+          Product Plus
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
