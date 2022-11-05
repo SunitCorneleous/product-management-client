@@ -18,7 +18,20 @@ const AddProduct = () => {
       stock,
     };
 
-    console.log(product);
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          alert("product successfully added");
+          form.reset();
+        }
+      });
   };
 
   return (
@@ -39,18 +52,24 @@ const AddProduct = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* category field */}
           <div className="form-control">
             <label className="label">
               <span className="label-text">Category:</span>
             </label>
-            <select name="category" className="select select-bordered w-full">
-              <option disabled selected>
+            <select
+              name="category"
+              defaultValue={"default"}
+              className="select select-bordered w-full"
+            >
+              <option disabled value="default">
                 Choose category
               </option>
               <option value="dairy">Dairy</option>
               <option value="vagetable">Vegetable</option>
             </select>
           </div>
+          {/* price field */}
           <div className="form-control w-full mx-auto">
             <label className="label">
               <span className="label-text">Price</span>
@@ -62,6 +81,7 @@ const AddProduct = () => {
               className="input input-bordered "
             />
           </div>
+          {/* stock field */}
           <div className="form-control w-full mx-auto">
             <label className="label">
               <span className="label-text">Stock:</span>
