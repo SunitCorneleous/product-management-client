@@ -1,6 +1,7 @@
 import React from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { PencilIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 const ProductTableRow = ({ product, index, deleteProductHandler }) => {
   return (
@@ -15,9 +16,12 @@ const ProductTableRow = ({ product, index, deleteProductHandler }) => {
         <span className="text-orange-600 font-bold">{product.stock}</span> units
       </td>
       <td>
-        <button className="btn btn-square bg-green-600 border-0 hover:bg-green-500">
+        <Link
+          className="btn btn-square bg-green-600 border-0 hover:bg-green-500"
+          to={`/products/${product._id}`}
+        >
           <PencilIcon className="h-6 w-6 text-white" />
-        </button>
+        </Link>
       </td>
       <td>
         <button
