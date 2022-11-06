@@ -39,6 +39,7 @@ const Home = () => {
               <th>Category</th>
               <th>Price</th>
               <th>Stock</th>
+              <th>Update</th>
               <th>Delete</th>
             </tr>
           </thead>
