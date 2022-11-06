@@ -5,6 +5,7 @@ const AddProduct = () => {
   //submit handler
   const addProductHandler = event => {
     event.preventDefault();
+
     const form = event.target;
     const name = form.name.value;
     const category = form.category.value;
